@@ -105,3 +105,105 @@ function randomInteger(min, max) {
 
 console.log(randomInteger(1, 4), "comment result");
 let startRandomNum = Math.random() * 5;
+
+
+// ----------------Objects (Object referencing, copying, cloning)---------------
+
+// Understanding Object Referencing
+
+
+// One of the fundamental differences of objects versus primitives is that OBJECTS ARE STORED AND COPIED BY REFERENCE, whereas primitive values: strings, numbers, booleans, etc – are always copied “as a whole value”.
+
+// A variable assigned to an object stores not the object itself, but its “address in memory” – in other words “a reference” to it.
+
+// When an object variable is copied, the reference is copied, but the object itself is not duplicated.
+
+// Cloning Object
+
+// 1. Using for-in loop
+let user = {
+    name: "arya",
+    age: 30
+}
+
+let clone = {};
+
+
+for (let key in user) {
+    console.log(key, "object key");
+    clone[key] = user[key]
+}
+
+console.log("cloned object", clone);
+
+// 2. Using Object.assign()
+
+let person = {
+    name: "manoj tiwari",
+    age: 23
+}
+
+let human = Object.assign({}, person);
+
+console.log("human", human);
+
+// But this cloning will not work for objects which have property with an object as a value. 
+
+let user1 = {
+    name: "John",
+    sizes: {
+        height: 182,
+        width: 50
+    }
+};
+
+let clone1 = Object.assign({}, user1);
+
+alert(user1.sizes === clone1.sizes); // true, same object
+
+//   Deep cloning a nested object
+
+function deepClone(obj) {
+    // If obj is not an object or is null, return it directly (primitive values)
+    if (obj === null || typeof obj !== "object") {
+        return obj;
+    }
+
+    // Handle Arrays
+    if (Array.isArray(obj)) {
+        return obj.map(deepClone);
+    }
+
+    // Handle Objects
+    let clonedObj = {};
+    for (let key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            clonedObj[key] = deepClone(obj[key]); // Recursively clone properties
+        }
+    }
+    return clonedObj;
+}
+
+
+// Example Usage
+let original = {
+    name: "Alice",
+    age: 25,
+    address: {
+        city: "New York",
+        zip: 10001
+    },
+    hobbies: ["reading", "traveling"],
+    active: true
+};
+
+let cloned = deepClone(original);
+
+// Modify cloned object
+cloned.address.city = "Los Angeles";
+cloned.hobbies.push("coding");
+
+console.log(original.address.city);  // Output: "New York" (unchanged)
+console.log(original.hobbies);       // Output: ["reading", "traveling"] (unchanged)
+console.log(cloned.address.city);    // Output: "Los Angeles"
+console.log(cloned.hobbies); 
