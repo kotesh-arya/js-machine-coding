@@ -112,3 +112,38 @@ console.log(generateHash(" "));
 console.log(generateHash("a".repeat(281)));
 console.log(generateHash("single"));
 
+//*---------------------------------------------------------
+//*  Question 3 : Count Occurrences of Character
+//*---------------------------------------------------------
+
+//! Task:
+//? Write a function called countChar that takes two parameters: a string and a character to count. The function should return the number of times the specified character appears in the string.
+
+function countChar(string, char) {
+    let splittedString = string.split("");
+    // console.log(splittedString);
+    let charOccurences = 0;
+
+    for (let i = 0; i < splittedString.length; i++) {
+        // console.log(splittedString[i]);
+        if (splittedString[i] === char) {
+            charOccurences++;
+        }
+    }
+    return charOccurences;
+}
+
+console.log(countChar("insane", "e"));
+
+// Test Cases
+console.log(countChar("hello world", "o")); // Expected output: 2
+console.log(countChar("banana", "a")); // Expected output: 3
+console.log(countChar("JavaScript", "j")); // Expected output: 0 (if case-sensitive)
+console.log(countChar("JavaScript", "J")); // Expected output: 1
+console.log(countChar("developer", "z")); // Expected output: 0
+console.log(countChar("count the spaces", " ")); // Expected output: 2
+console.log(countChar("hello-world!", "-")); // Expected output: 1
+console.log(countChar("hello-world!", "!")); // Expected output: 1
+console.log(countChar("123123123", "1")); // Expected output: 3
+console.log(countChar("", "a")); // Expected output: 0
+console.log(countChar("Mississippi", "s")); // Expected output: 4
