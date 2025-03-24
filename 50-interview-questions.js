@@ -147,3 +147,133 @@ console.log(countChar("hello-world!", "!")); // Expected output: 1
 console.log(countChar("123123123", "1")); // Expected output: 3
 console.log(countChar("", "a")); // Expected output: 0
 console.log(countChar("Mississippi", "s")); // Expected output: 4
+
+
+
+//*---------------------------------------------------------
+//*  Question 4:
+//*---------------------------------------------------------
+//? Write a function called checkTriangleType that takes three parameters representing the lengths of the sides of a triangle. The function should return a string indicating the type of triangle: "equilateral", "isosceles", or "scalene".
+
+const checkTriangleType = (a, b, c) => {
+    if (a === b && b === c) return "equilateral";
+    if (a === b || b === c || a === c) return "isosceles";
+    return "scalene";
+};
+
+console.log(checkTriangleType(3, 3, 5)); // Output: "equilateral"
+console.log(checkTriangleType(3, 4, 3)); // Output: "isosceles"
+console.log(checkTriangleType(5, 8, 6)); // Output: "scalene"
+
+//todo The function should adhere to the following rules:
+//? If all three sides are of equal length, return "equilateral".
+//? If only two sides are of equal length, return "isosceles".
+//? If all three sides have different lengths, return "scalene"
+
+//*---------------------------------------------------------
+//*  Question 5:
+//*---------------------------------------------------------
+
+//? 15: Write a function to calculate the sum of squares of all elements in an array. For example, given the array [1, 2, 3], the function should return 14 because 1*1 + 2*2 + 3*3 = 1 + 4 + 9 = 14.
+
+function squareAndSum(arr) {
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        console.log(arr[i]);
+        sum += arr[i] * arr[i]
+    }
+    return sum;
+}
+console.log(squareAndSum([1, 2, 3]));
+
+
+//*---------------------------------------------------------
+//* Coding Challenge: Find the Minimum Value in an Array
+//*---------------------------------------------------------
+//? Q6: Write a function findMin that takes an array of numbers as input and returns the minimum value found in the array.
+
+//* Constraints:
+//? The input array may contain both positive and negative integers.
+//? The input array may be empty.
+//? The input array may contain duplicate values.
+
+function findMin(arr) {
+    let min = arr[0]
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] < min) {
+            min = arr[i];
+        }
+    }
+    return min;
+}
+
+// // Example usage:
+console.log(findMin([5, 10, 2, 8])); // Output: 2
+console.log(findMin([5, -3, 0, 12, -7])); // Output: -7
+console.log(findMin([]));
+
+//*--------------------------------
+//* Coding Challenge
+//*--------------------------------
+//? Q7: Write a function to check if a character is uppercase or lowercase.
+
+
+const isUpperCase = (char) => {
+    //   if (char.charCodeAt(0) >= 65 && char.charCodeAt(0) <= 90) {
+    //     return true;
+    //   }
+    //   return false;
+    return char === char.toUpperCase();
+};
+
+console.log(isUpperCase("s"));
+console.log(isUpperCase("S"));
+
+
+console.log("S".toUpperCase());
+
+console.log("----------------------------------------");
+//*--------------------------------
+//*  Q8: Write a function to convert a string to camelCase & snake_case.
+//*--------------------------------
+
+function toCamelCase(text) {
+    let trimmedText = text.trim();
+
+    let splittedTextArr = trimmedText.split(" ");
+    let camelText = splittedTextArr[0].toLowerCase();
+    for (let i = 0; i < splittedTextArr.length; i++) {
+        if (i > 0) {
+            let capitalizedFirstChar = splittedTextArr[i].charAt(0).toUpperCase();
+            console.log("capitalized first char", capitalizedFirstChar);
+            let LowercasedRestOfchars = splittedTextArr[i].slice(1).toLowerCase();
+            // console.log("original chars", splittedTextArr[i]);
+            console.log("after diverging", LowercasedRestOfchars);
+            camelText += splittedTextArr[i].charAt(0).toUpperCase() + LowercasedRestOfchars
+        }
+    }
+    return camelText;
+}
+
+function toSnakeCase(text) {
+    let trimmedText = text.trim();
+
+    let splittedCharArr = trimmedText.split("");
+    console.log(splittedCharArr);
+    let snakeCaseText = "";
+    for (let i = 0; i < splittedCharArr.length; i++) {
+        if (splittedCharArr[i].charCodeAt(0) >= 65 && splittedCharArr[i].charCodeAt(0) <= 90) {
+            console.log(splittedCharArr[i]);
+            snakeCaseText += "_" + splittedCharArr[i].toLowerCase();
+        } else {
+            snakeCaseText += splittedCharArr[i];
+        }
+    }
+    return snakeCaseText;
+}
+// Example usage:
+console.log(toCamelCase("hello world moWa")); // Output: helloWorld
+
+console.log(toSnakeCase("helloWorld")); // Output: hello_world
+
+
