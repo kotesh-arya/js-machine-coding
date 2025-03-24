@@ -277,3 +277,51 @@ console.log(toCamelCase("hello world moWa")); // Output: helloWorld
 console.log(toSnakeCase("helloWorld")); // Output: hello_world
 
 
+//*--------------------------------
+// Q9: Write a function to check if a given string starts with a specific substring.
+//*--------------------------------
+
+// Input:
+
+//? str: A string (e.g., "Hello world").
+//? subStr: A substring to check if it starts the given string (e.g., "Hello").
+//? Output: true if the given string starts with the specified substring, otherwise false.
+
+function checkSubstring(str, subStr) {
+    if (str.toLowerCase().slice(0, subStr.length) === subStr.toLowerCase()) {
+        return true;
+    } else {
+        return false
+    }
+}
+console.log(checkSubstring("Hello world", "ello"));
+
+
+//*--------------------------------
+//Q10. Write a function to reverse a string without using any built-in methods or libraries. The function should take a string as input and return the reversed string.
+//*--------------------------------
+
+
+function reverseString(str) {
+    let splittedStringArr = str.split("");
+    let reverseStrArr = [];
+    console.log(splittedStringArr);
+    for (let i = splittedStringArr.length - 1; i >= 0; i--) {
+        console.log(splittedStringArr[i]);
+        reverseStrArr.push(splittedStringArr[i]);
+
+    }
+    return reverseStrArr.join("");
+}
+
+// Or 
+
+// const reverseString = (str) => {
+//     let r_str = "";
+//     for (let i = str.length - 1; i >= 0; i--) {
+//         r_str = r_str + str[i];
+//     }
+//     return r_str;
+// };
+
+console.log(reverseString("kotesh"));
