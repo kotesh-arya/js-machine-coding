@@ -325,3 +325,155 @@ function reverseString(str) {
 // };
 
 console.log(reverseString("kotesh"));
+
+
+//*--------------------------------
+//* Q11. Write a function called calculateMean that takes an array of numbers as input and returns the mean (average) of those numbers. 
+//*--------------------------------
+
+
+
+//todo In math, the mean is the average of a set of numbers, or the numeric value that represents the center of a collection of numbers.
+
+//? Constraints:
+//? The input array may contain positive and negative integers.
+//? The input array may be empty. If it is empty, the function should return 0.
+
+
+function calculateMean(arr) {
+    if (arr.length === 0) {
+        return 0;
+    }
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        sum += arr[i];
+    }
+    return sum / (arr.length)
+}
+
+// Edge case: Empty array (should return 0)
+console.log(calculateMean([]),); // Expected output: 0
+
+// Case 1: All positive numbers
+console.log(calculateMean([2, 4, 6, 8, 10])); // Expected output: 6
+
+// Case 2: All negative numbers
+console.log(calculateMean([-3, -7, -1, -5])); // Expected output: -4
+
+// Case 3: Mixed positive and negative numbers
+console.log(calculateMean([-2, 3, -4, 5, -6, 7])); // Expected output: 0.5
+
+// Case 4: Single element (positive)
+console.log(calculateMean([9])); // Expected output: 9
+
+// Case 5: Single element (negative)
+console.log(calculateMean([-9])); // Expected output: -9
+
+// Case 6: Including zero
+console.log(calculateMean([0, 5, 10, 15])); // Expected output: 7.5
+
+// Case 7: Large numbers
+console.log(calculateMean([1000000, 2000000, 3000000])); // Expected output: 2000000
+
+console.log(calculateMean([1, 2, 3, 4, 5])); // Output: 3
+console.log(calculateMean([10, 20, 30])); // Output: 20
+console.log(calculateMean([-1, 0, 1])); // Output: 0
+console.log(calculateMean([])); // Output: 0
+
+
+//*---------------------------
+//* Q12. Write a JavaScript function findMedian(arr) that takes an array of numbers as input and returns the median value. If the array has an even number of elements, return the average of the two middle values.
+//*---------------------------
+
+
+
+//? For example, the median of 3, 3, 5, 9, 15 is 5. If there is an even number of observations, then there is no single middle value; the median is then usually defined to be the mean of the two middle values: so the median of 3, 5, 7, 9 is (5+7)/2 = 6.
+
+//todo  Tips
+//? Sort the array in ascending order.
+//? If the array has an odd number of elements, the median is the middle element.
+//?
+
+function findMedian(arr) {
+    // console.log(arr, "before sorting");
+    arr.sort((a, b) => a - b);
+    // console.log(arr, "after sorting");
+    if (arr.length % 2 === 0) {
+        // console.log("hi", arr.length / 2, (arr.length / 2) - 1);
+        return (arr[arr.length / 2] + arr[(arr.length / 2) - 1]) / 2
+    } else {
+        // console.log("hello", arr.length / 2);
+        return arr[Math.floor(arr.length / 2)];
+    }
+}
+console.log(findMedian([15, 9, 5, 3, 3]));
+
+
+console.log(findMedian([3, 5, 7, 9])); // Output: 6
+console.log(findMedian([5, 3, 9, 1, 7])); // Output: 5
+console.log(findMedian([2, 4, 6, 8])); // Output: 5
+console.log(findMedian([1, 3, 5, 7, 9, 11])); // Output: 6
+
+//*---------------------------
+//* Q13. Write a function called findMode that takes an array of numbers as input and returns the mode of the array (the number that appears most frequently).
+//*---------------------------
+
+
+// function findMode(arr) {
+//     console.log("yo...!");
+//     let occurenceMap = new Map();
+//     for (let i = 0; i < arr.length; i++) {
+//         if (occurenceMap.has(arr[i])) {
+//             occurenceMap.set(arr[i], occurenceMap.get(arr[i]) + 1)
+//         }
+//         else {
+//             occurenceMap.set(arr[i], 1);
+//         }
+//     }
+//     // console.log("populated map", occurenceMap);
+//     // console.log("map values", occurenceMap.entries());
+//     let mapEntiresArr = Array.from(occurenceMap.entries());
+//     // console.log(mapEntiresArr);
+//     let maxCountArr = mapEntiresArr[0];
+//     // console.log(maxCountArr[1]);
+//     for (let i = 1; i < mapEntiresArr.length; i++) {
+//         // console.log(mapEntiresArr[i][1], "*******", maxCountArr[1]);
+//         // console.log(mapEntiresArr[i]);
+//         if (mapEntiresArr[i][1] > maxCountArr[1]) {
+//             maxCountArr = mapEntiresArr[i]
+//         }
+//     }
+//     return maxCountArr[0];
+// }
+
+
+
+
+function findMode(arr) {
+    // console.log("yo...!");
+    let occurenceObj = {};
+    let maxOccurrence = 0;
+    let mode = 0;
+    for (elem of arr) {
+        // console.log(elem, "each element");
+        if (elem in occurenceObj) {
+            occurenceObj[elem] += 1;
+            if (occurenceObj[elem] > maxOccurrence) {
+                maxOccurrence = occurenceObj[elem];
+                mode = elem;
+            }
+        } else {
+            occurenceObj[elem] = 1;
+        }
+        // console.log("occurence object indise loop", occurenceObj);
+    }
+    // console.log("occurence object", occurenceObj);
+    // console.log("final mode", mode);
+    return mode;
+}
+// Example usage:
+console.log(findMode([1, 4, 4, 4, 4, 4, 9, 9, 9, 9, 9, 9, 9, 2, 2, 3, 1, 4, 2])); // Output: 9 ✅
+
+//* Constraints:
+//? The input array will always contain at least one element.
+//? The mode will always be unique (i.e., there won't be multiple numbers with the same highest frequency).
