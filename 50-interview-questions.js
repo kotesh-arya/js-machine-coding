@@ -526,3 +526,71 @@ function getFibonacci(num) {
     }
 }
 console.log((getFibonacci(4))); // 3
+
+
+//*--------------------------------------
+//* Q16.Repeat a String
+//*--------------------------------------
+
+//* Write a function called repeatString that takes two parameters:
+
+//? str: A string that needs to be repeated.
+//?  num: An integer representing the number of times the string should be repeated.
+//? The function should repeat the input string str the specified number of times num and return the resulting string.
+function repeatString(text, repeatCount) {
+    let finalString = "";
+    for (let i = 1; i <= repeatCount; i++) {
+        finalString += text;
+    }
+    return finalString;
+}
+console.log(repeatString("abos", 1));
+
+console.log(repeatString("abc", 3));  // "abcabcabc"
+console.log(repeatString("hello", 2)); // "hellohello"
+console.log(repeatString("x", 5));     // "xxxxx"
+console.log(repeatString("test", 1));  // "test"
+console.log(repeatString("wow", 0));   // "" (empty string)
+
+
+// Edge cases
+console.log("________________________________");
+console.log(repeatString("", 5));   // "" (empty string, even if repeated) ✅
+console.log(repeatString("a", 0));  // "" (should return an empty string)✅ 
+console.log(repeatString("abc", -1)); // "" (negative numbers should return an empty string)✅
+console.log(repeatString("123", 10)); // "123123123123123123123123123123" (handling large repetitions)✅
+console.log("***", repeatString(" ", 4), "****");  // "    " (four spaces)✅
+
+
+//*--------------------------------------
+//* Q17.Truncate a String
+//*--------------------------------------
+
+//* Write a function called truncateString that takes two parameters:
+
+//? str: A string that needs to be truncated.
+//? maxLength: An integer representing the maximum length of the string allowed.
+//? 
+
+
+function truncateString(text, truncCount) {
+    let splittedTextArr = text.split("");
+    // console.log(splittedTextArr, truncCount);
+    let truncatedText = "";
+    for (let i = 0; i < truncCount; i++) {
+        // console.log(splittedTextArr[i]);
+        truncatedText += splittedTextArr[i]
+    }
+    if (truncCount >= splittedTextArr.length) {
+        return truncatedText;
+    } else {
+        return truncatedText + "..."
+    }
+}
+
+
+console.log(truncateString("Hello World", 5));   // "Hello..." ✅
+console.log(truncateString("JavaScript", 4));    // "Java..."✅
+console.log(truncateString("OpenAI", 6));        // "OpenAI" (No truncation needed)✅
+console.log(truncateString("Truncate", 8));      // "Truncate" (Exact length, no change)✅
+console.log(truncateString("Coding", 3));        // "Cod..."✅
