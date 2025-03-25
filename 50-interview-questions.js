@@ -477,3 +477,52 @@ console.log(findMode([1, 4, 4, 4, 4, 4, 9, 9, 9, 9, 9, 9, 9, 2, 2, 3, 1, 4, 2]))
 //* Constraints:
 //? The input array will always contain at least one element.
 //? The mode will always be unique (i.e., there won't be multiple numbers with the same highest frequency).
+
+
+//*---------------------------
+//* Coding Challenge
+
+//* Q14.Write a function to calculate the factorial of a number.(using Recursion)
+
+//* Recursion:
+//? Recursion is a programming technique where a function calls itself in order to solve a problem. In essence, it's a function that calls itself with smaller or simpler input until it reaches a base case.
+
+//* Base Case:
+//? The base case is the condition in a recursive function that stops the recursion. It's the point at which the function stops calling itself and returns a value without further recursion. Without a base case, the recursive function would continue calling itself indefinitely, leading to what's known as infinite recursion.
+
+
+//*---------------------------
+
+//* Recursive Case:
+//?
+function getFactorial(num) {
+    if (num < 1) {
+        return 1
+    } else {
+        return num * getFactorial(num - 1);
+    }
+}
+console.log(getFactorial(4));
+
+
+//*---------------------------
+//* Q15.//* Write a function to find the nth Fibonacci number.
+
+//? The Fibonacci series is a sequence of numbers in which each number (Fibonacci number) is the sum of the two preceding ones. It starts with 0 and 1, and the subsequent numbers are calculated by adding the last two numbers. So, the Fibonacci series looks like this: 0, 1, 1, 2, 3, 5, 8, 13, 21, ...
+
+//todo Fibonacci number is calculated using the following formula:
+//todo syntax:  F(n) = F(n-1) + F(n-2), Where, F(1) = F(2) = 1.//*---------------------------
+
+
+
+
+function getFibonacci(num) {
+    if (num === 0) {
+        return 0;
+    } else if (num === 1) {
+        return 1;
+    } else {
+        return getFibonacci(num - 1) + getFibonacci(num - 2)
+    }
+}
+console.log((getFibonacci(4))); // 3
