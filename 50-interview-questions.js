@@ -733,3 +733,89 @@ console.log(isEmptyObject({ keyWithUndefined: undefined })); // Output: "it's no
 //* Hint
 //// Object.keys() returns an array of keys.
 //// Object.values() returns an array of values.
+console.log("ooooooooooooooooooooo------------------oooooooooooooooooo--------------------oooooooooooo");
+//*--------------------------------------------------------------------
+//* Q22.Convert Object to Array and Vice Versa
+//*--------------------------------------------------------------------
+
+//* Your task is to implement two functions:
+
+//? 1. Convert Object to Array: 
+//?    Implement a function `objectToArray` that takes an object as input 
+//?    and returns an array of key-value pairs. 
+//?    Each element in the array should be a two-element array: 
+//?    [key, value] (where `key` is a string, and `value` is the corresponding value from the object).
+
+//? 2. Convert Array to Object: 
+//?    Implement a function `arrayToObject` that takes an array of key-value pairs 
+//?    (as returned by `objectToArray`) and returns a new object with the same keys and values.
+
+//* Requirements:
+
+//? - The input object may contain properties of any data type (string, number, boolean, object, etc.).
+//? - The input array must contain sub-arrays with exactly two elements (key-value pairs).
+//? - The output object should preserve the order of properties as they appeared in the original object.
+//? - Use the provided function names (`objectToArray` and `arrayToObject`) without adding extra parameters.
+
+function objectToArray(obj) {
+    // console.log("object->>>>", obj);
+    return Object.entries(obj);
+}
+
+function arrayToObject(arr) {
+    console.log("obj->>>> from arr");
+    let objFromArr = {};
+    for (let i = 0; i < arr.length; i++) {
+        objFromArr[arr[i][0]] = arr[i][1];
+    }
+    return objFromArr;
+}
+
+
+// Test Cases
+
+// Test Case 1: Basic object with different data types
+const obj1 = { name: "Alice", age: 25, isStudent: false };
+console.log(objectToArray(obj1));
+// Expected Output: [ ['name', 'Alice'], ['age', 25], ['isStudent', false] ]
+
+const arr1 = [['name', 'Alice'], ['age', 25], ['isStudent', false]];
+console.log(arrayToObject(arr1));
+// Expected Output: { name: 'Alice', age: 25, isStudent: false }
+
+// Test Case 2: Empty object
+const obj2 = {};
+console.log(objectToArray(obj2));
+// Expected Output: []
+
+const arr2 = [];
+console.log(arrayToObject(arr2));
+// Expected Output: {}
+
+// Test Case 3: Object with nested object
+const obj3 = { user: { id: 1, name: "Bob" }, active: true };
+console.log(objectToArray(obj3));
+// Expected Output: [ ['user', { id: 1, name: "Bob" }], ['active', true] ]
+
+const arr3 = [['user', { id: 1, name: "Bob" }], ['active', true]];
+console.log(arrayToObject(arr3));
+// Expected Output: { user: { id: 1, name: "Bob" }, active: true }
+
+// Test Case 4: Object with numeric keys
+const obj4 = { 1: "one", 2: "two", 3: "three" };
+console.log(objectToArray(obj4));
+// Expected Output: [ ['1', 'one'], ['2', 'two'], ['3', 'three'] ] 
+// (keys become strings in JavaScript objects)
+
+const arr4 = [['1', 'one'], ['2', 'two'], ['3', 'three']];
+console.log(arrayToObject(arr4));
+// Expected Output: { '1': 'one', '2': 'two', '3': 'three' }
+
+// Test Case 5: Object with undefined and null values
+const obj5 = { a: undefined, b: null, c: "hello" };
+console.log(objectToArray(obj5));
+// Expected Output: [ ['a', undefined], ['b', null], ['c', 'hello'] ]
+
+const arr5 = [['a', undefined], ['b', null], ['c', 'hello']];
+console.log(arrayToObject(arr5));
+// Expected Output: { a: undefined, b: null, c: 'hello' }
