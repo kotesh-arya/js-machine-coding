@@ -680,3 +680,56 @@ function numberRangeRecursive(a, b, rangeArr = []) {
 console.log(numberRangeRecursive(0, 5)); // Output: [0, 1, 2, 3, 4, 5]
 console.log(numberRangeRecursive(3, 7)); // Output: [3, 4, 5, 6, 7]
 console.log(numberRangeRecursive(-2, 2)); // Output: [-2, -1, 0, 1, 2]
+
+
+//*---------------------------------------------------------
+//* Q20.Remove Duplicates from an Array
+//*---------------------------------------------------------
+//? Write a function removeDuplicates that takes an array of elements as input and returns a new array with duplicate elements removed.
+
+//? Your task is to implement the removeDuplicates function using JavaScript and ensure that the returned array contains only unique elements from the input array. The order of elements in the output array should be the same as the original array, with the first occurrence of each unique element preserved.
+
+//* Constraints:
+//? The input array may contain elements of any data type.
+//? The function should return a new array with duplicate elements removed, while preserving the order of elements from the original array.
+//? You should use the provided removeDuplicates function signature without any additional parameters.
+
+
+function removeDuplicates(arr) {
+    return [...new Set(arr)]
+}
+
+console.log(removeDuplicates([1, 2, 3, 3, 4, 4, 5])); // Output: [1, 2, 3, 4, 5]
+console.log(removeDuplicates(["a", "b", "c", "b", "a"])); // Output: ['a', 'b', 'c']
+
+//*--------------------------------------------------
+//* Q21.Check Object Emptiness
+//*--------------------------------------------------
+
+//? Write a function isEmptyObject that takes an object as input and determines whether it is empty or not. An empty object is defined as an object with no own properties.
+
+//? Your task is to implement the isEmptyObject function using JavaScript and return a message indicating whether the object is empty or not.
+
+//* Constraints:
+
+//? The input object may have any number of properties, including zero.
+//? The function should return a message indicating whether the object is empty or not.
+//? You
+
+function isEmptyObject(obj) {
+    console.log("object length", obj.length);
+    if (Object.keys(obj).length !== 0) {
+        return "Non empty object"
+    } else {
+        return "Non empty object"
+    }
+}
+
+console.log(isEmptyObject({ name: "vinod" })); // Output: "it's not empty"
+console.log(isEmptyObject({})); // Output: "it's empty"
+console.log(isEmptyObject({ keyWithNull: null })); // Output: "it's empty"
+console.log(isEmptyObject({ keyWithUndefined: undefined })); // Output: "it's empty"
+
+//* Hint
+//// Object.keys() returns an array of keys.
+//// Object.values() returns an array of values.
