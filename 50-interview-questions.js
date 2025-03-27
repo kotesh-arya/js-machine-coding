@@ -717,18 +717,18 @@ console.log(removeDuplicates(["a", "b", "c", "b", "a"])); // Output: ['a', 'b', 
 //? You
 
 function isEmptyObject(obj) {
-    console.log("object length", obj.length);
+    console.log(Object.keys(obj).length);
     if (Object.keys(obj).length !== 0) {
-        return "Non empty object"
+        return "Non empty object";
     } else {
-        return "Non empty object"
+        return "Empty object";
     }
 }
 
 console.log(isEmptyObject({ name: "vinod" })); // Output: "it's not empty"
 console.log(isEmptyObject({})); // Output: "it's empty"
-console.log(isEmptyObject({ keyWithNull: null })); // Output: "it's empty"
-console.log(isEmptyObject({ keyWithUndefined: undefined })); // Output: "it's empty"
+console.log(isEmptyObject({ keyWithNull: null })); // Output: "it's non empty"
+console.log(isEmptyObject({ keyWithUndefined: undefined })); // Output: "it's non empty"
 
 //* Hint
 //// Object.keys() returns an array of keys.
