@@ -379,4 +379,32 @@ function pattern13(n) {
     }
 
 }
-pattern13(5);
+// pattern13(5);
+
+// ----------------------------------------------------
+
+// 1
+// 2 3 
+// 4 5 6
+// 7 8 9 10
+// 11 12 13 14 15
+
+
+function pattern14(n) {
+
+    let line = "";
+    let charCodeInitial = 65;
+    for (let i = 1; i <= n; i++) {
+
+        for (let j = 0; j < i; j++) {
+            line += String.fromCharCode(j + charCodeInitial) + " ";
+        }
+
+        console.log(line);
+        line = ""
+    }
+
+}
+pattern14(5);
+// console.log("A".charCodeAt(0)); // 65
+// console.log(String.fromCharCode(65)); // A
