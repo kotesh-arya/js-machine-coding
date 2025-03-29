@@ -18,7 +18,7 @@ function pattern1(n) {
     }
 
 }
-pattern1(4);
+// pattern1(4);
 // ----------------------------------------------------
 
 // * 
@@ -39,7 +39,7 @@ function pattern2(n) {
     }
 
 }
-pattern2(4);
+// pattern2(4);
 // ----------------------------------------------------
 
 // 1 
@@ -60,7 +60,7 @@ function pattern3(n) {
     }
 
 }
-pattern3(4);
+// pattern3(4);
 // ----------------------------------------------------
 
 // 1 
@@ -81,7 +81,7 @@ function pattern4(n) {
     }
 
 }
-pattern4(4);
+// pattern4(4);
 // ----------------------------------------------------
 
 
@@ -104,7 +104,7 @@ function pattern5(n) {
     }
 
 }
-pattern5(5);
+// pattern5(5);
 // ----------------------------------------------------
 
 
@@ -128,7 +128,7 @@ function pattern6(n) {
     }
 
 }
-pattern6(5);
+// pattern6(5);
 // ----------------------------------------------------
 
 
@@ -158,7 +158,7 @@ function pattern7(n) {
         line = "";
     }
 }
-pattern7(5);
+// pattern7(5);
 // ----------------------------------------------------
 console.log("----------Pattern - 8 below ⤵----");
 
@@ -188,7 +188,7 @@ function pattern8(n) {
         line = "";
     }
 }
-pattern8(5);
+// pattern8(5);
 // ----------------------------------------------------
 
 
@@ -242,7 +242,7 @@ function pattern9(n) {
         line = "";
     }
 }
-pattern9(5);
+// pattern9(5);
 // ----------------------------------------------------
 
 // * 
@@ -279,4 +279,44 @@ function pattern10(n) {
     }
 
 }
-pattern10(5);
+// pattern10(5);
+
+// ----------------------------------------------------
+
+// 1
+// 0 1 
+// 1 0 1 
+// 0 1 0 1
+// 1 0 1 0 1
+
+// Pointer1 :  Leveraged the boolean to number conversion of true and false to print 1's and 0's by switching
+function pattern11(n) {
+    let line = "";
+
+    // Pointer2 :  Initialized the binaryToggle digit as 1 by assigning it to true
+    let binaryToggle = true;
+
+    for (let i = 1; i <= n; i++) {
+
+
+        // Pointer3 : If the row is even start with 0-> Numeric conversion of false else start with 1 numeric conversion of true
+        if (i % 2 === 0) {
+            binaryToggle = false;
+        } else {
+            binaryToggle = true
+        }
+
+        // Pointer4 : Assign value and then toggle the binaryToggle value 1-> 0 and 0 -> 1
+        for (let j = 1; j <= i; j++) {
+
+            line += Number(binaryToggle);
+
+            binaryToggle = Number(!binaryToggle);
+        }
+
+        console.log(line);
+        line = "";
+    }
+
+}
+pattern11(5);
