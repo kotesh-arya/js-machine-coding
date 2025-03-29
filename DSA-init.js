@@ -319,4 +319,35 @@ function pattern11(n) {
     }
 
 }
-pattern11(5);
+// pattern11(5);
+
+
+// 1             1
+// 1 2         2 1
+// 1 2 3     3 2 1
+// 1 2 3 4 4 3 2 1
+
+
+function pattern12(n) {
+
+    let line = "";
+    for (let i = 1; i <= n; i++) {
+
+
+        for (let j = 1; j <= i; j++) {
+            line += j;
+        }
+
+        for (let k = 1; k <= 2 * n - 2 * i; k++) {
+            line += " ";
+        }
+        for (let l = i; l > 0; l--) {
+            line += l;
+        }
+
+        console.log(line);
+        line = ""
+    }
+
+}
+pattern12(4);
