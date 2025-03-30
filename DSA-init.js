@@ -433,3 +433,30 @@ function pattern15(n) {
 
 }
 pattern15(5);
+
+
+// ----------------------------------------------------
+
+// A
+// B B 
+// C C C
+// D D D D
+// E E E E E
+
+
+function pattern16(n) {
+
+    let line = "";
+    let charCodeInitial = 65;
+    for (let i = 0; i < n; i++) {
+
+        for (let j = 0; j <= i; j++) {
+            line += String.fromCharCode(i + charCodeInitial) + " ";
+        }
+
+        console.log(line);
+        line = ""
+    }
+
+}
+pattern16(5);
