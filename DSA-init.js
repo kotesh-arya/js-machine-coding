@@ -410,6 +410,14 @@ function pattern16(n) {
   }
 }
 // pattern16(5);
+
+// ----------------------------------------------
+
+//    A
+//   ABA
+//  ABCBA
+// ABCDCBA
+
 function pattern17(n) {
   let line = "";
   let space = " ";
@@ -437,4 +445,27 @@ function pattern17(n) {
   }
 }
 
-pattern17(4);
+// pattern17(4);
+
+// ----------------------------------------------------
+
+// E
+// D E
+// C D E
+// B C D E
+// A B C D E
+
+function pattern18(n) {
+  let line = "";
+  for (let i = 0; i < n; i++) {
+    let charValue = 64;
+
+    for (let j = i; j >= 0; j--) {
+      line += String.fromCharCode(n - j + charValue);
+    }
+    console.log(line);
+    line = "";
+  }
+}
+
+pattern18(5);
