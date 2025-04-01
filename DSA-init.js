@@ -468,4 +468,53 @@ function pattern18(n) {
   }
 }
 
-pattern18(5);
+// pattern18(5);
+// ------------------------------------------------
+
+// **********
+// ****  ****
+// ***    ***
+// **      **
+// *        *
+// *        *
+// **      **
+// ***    ***
+// ****  ****
+// **********
+
+function pattern19(n) {
+  let line = "";
+  for (let i = 0; i < n; i++) {
+    // stars
+    for (let j = 0; j < n - i; j++) {
+      line += "*";
+    }
+    // spaces
+    for (let k = 0; k < 2 * i; k++) {
+      line += " ";
+    }
+    // stars
+    for (let l = 0; l < n - i; l++) {
+      line += "*";
+    }
+    console.log(line);
+    line = "";
+  }
+  for (let i = n - 1; i >= 0; i--) {
+    // stars
+    for (let j = 0; j < n - i; j++) {
+      line += "*";
+    }
+    // spaces
+    for (let k = 0; k < 2 * i; k++) {
+      line += " ";
+    }
+    // stars
+    for (let l = 0; l < n - i; l++) {
+      line += "*";
+    }
+    console.log(line);
+    line = "";
+  }
+}
+pattern19(5);
