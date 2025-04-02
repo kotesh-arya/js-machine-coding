@@ -517,4 +517,47 @@ function pattern19(n) {
     line = "";
   }
 }
-pattern19(5);
+// pattern19(5);
+
+// --------------------------------------------
+
+// *        *
+// **      **
+// ***    ***
+// ****  ****
+// **********
+// ****  ****
+// ***    ***
+// **      **
+// *        *
+
+function pattern20(n) {
+  let line = "";
+
+  for (let i = 1; i < 2 * n; i++) {
+    // stars
+
+    let starCount = i;
+    let spaceCount = 2 * (n - i);
+    if (i > n) {
+      starCount = 2 * n - i;
+      spaceCount = i - (2 * n - i);
+    }
+
+    for (let j = 1; j <= starCount; j++) {
+      line += "*";
+    }
+
+    // spaces
+    for (let k = 0; k < spaceCount; k++) {
+      line += " ";
+    }
+    // stars
+    for (let l = 1; l <= starCount; l++) {
+      line += "*";
+    }
+    console.log(line);
+    line = "";
+  }
+}
+pattern20(5);
