@@ -560,4 +560,38 @@ function pattern20(n) {
     line = "";
   }
 }
-pattern20(5);
+// pattern20(5);
+
+// --------------------------------------------
+// Square pattern with Even input
+function pattern21(n) {
+  let line = "";
+
+  for (let i = 1; i <= n; i++) {
+    let starCount = i === 1 || i === n ? n / 2 : n / n;
+    let spaceCount = i === 1 || i === n ? 0 : n - 2;
+
+    // console.log("space count", spaceCount);
+
+    // stars
+    for (let j = 0; j < starCount; j++) {
+      line += "*";
+    }
+
+    // spaces
+
+    for (let k = 0; k < spaceCount; k++) {
+      line += " ";
+    }
+
+    // stars
+
+    for (let l = 0; l < starCount; l++) {
+      line += "*";
+    }
+    console.log(line);
+    line = "";
+  }
+}
+
+pattern21(6);
