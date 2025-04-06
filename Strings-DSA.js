@@ -105,3 +105,36 @@ function checkPalindrome(num) {
 console.log(checkPalindrome(121));
 
 // console.log("kotesh".split("").reverse().join(""));
+
+// Q3: Hamming distance 
+// Given strings x and y, return the hamming distance between them 
+
+// Input x = "hello" and y="hwllr"
+// output = 2
+
+// Explation
+//   (hello)
+//   (hwllr)
+//     ⬆  ⬆
+
+
+function hammingDistance(x, y) {
+    if (x.length === y.length) {
+        let distance = 0;
+
+        for (let i = 0; i < x.length; i++) {
+            if (x[i] !== y[i]) {
+                distance++;
+            }
+        }
+        return distance
+    } else {
+        throw new Error("Two strings are not of equal length");
+    }
+}
+console.log(hammingDistance("hello", "hwllr"), "hamming distance");
+
+
+let digit = 2;
+
+console.log(digit.toString(2));
