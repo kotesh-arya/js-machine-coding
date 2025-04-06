@@ -76,7 +76,7 @@ console.log(state.localeCompare(stateClone)); // 0 means equal
 
 
 // Questions:
-// Q1: Trincate String: For an input string, if the input string length is greater than the value of maxLength then the characters after that maxLength value index of the input string should be replaced with "..."
+// Q1: Truncate String: For an input string, if the input string length is greater than the value of maxLength then the characters after that maxLength value index of the input string should be replaced with "..."
 
 
 
@@ -95,3 +95,13 @@ function truncateString(str, maxLength) {
     }
 }
 console.log(truncateString("Ignorance is a Bliss", 9));
+
+// Q2: Check Palindrome Number - An integer is a palindrome if it is same in either case of reading forward and backward.
+
+function checkPalindrome(num) {
+    console.log(typeof num.toString());
+    return num === +num.toString().split("").reverse().join("");
+}
+console.log(checkPalindrome(121));
+
+// console.log("kotesh".split("").reverse().join(""));
