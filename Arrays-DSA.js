@@ -114,4 +114,44 @@ console.log(isPalindrome("race a car"));
 console.log(isPalindrome("0P"));
 
 
-console.log(0 - 4);
+
+// Q3: Find distinct elements in an array [sorted]
+let mixedArr = [1, 2, 2, 3, 4, 4, 4, 5, 5]
+// output: [1,2,3,4,5];
+
+function getDistinctElements(arr) {
+    let distinctEl = arr[0];
+    let distinctArr = [];
+    distinctArr.push(arr[0])
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] === distinctEl) {
+            continue;
+        } else {
+            distinctArr.push(arr[i]);
+            distinctEl = arr[i];
+        }
+    }
+    return distinctArr
+}
+console.log(getDistinctElements(mixedArr));   //[1,2,3,4,5]
+console.log(getDistinctElements([2, 2, 2, 2]));  //[2]
+
+
+// Q4: Generate all sub arrays of an array
+
+// input : [1,2,3]
+// output: [1], [1,2], [2], [2,3], [1,2,3], [3]
+
+function getSubArrays(arr) {
+    let subArrayCount = 0;
+    for (let i = 1; i <= arr.length; i++) {
+        let subArr = [];
+        for (let j = i - 1; j < arr.length; j++) {
+            subArr.push(arr[j])
+            console.log(subArr, "<----");
+            subArrayCount++;
+        }
+    }
+    return subArrayCount;
+}
+console.log(getSubArrays([1, 2, 3]));
