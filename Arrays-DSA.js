@@ -1,15 +1,15 @@
 // Array Traversal
 let arr = [1, 2, 3, 4, 5, 6, 7]
 for (let i = 0; i < arr.length; i++) {
-    console.log(arr[i]);
+    // console.log(arr[i]);
 }
 
 for (let j = arr.length - 1; j >= 0; j--) {
-    console.log(arr[j]);
+    // console.log(arr[j]);
 }
 
 for (let num of arr) {
-    console.log(num);
+    // console.log(num);
 }
 
 
@@ -32,7 +32,7 @@ function reverse(arr) {
     return arr;
 }
 
-console.log(reverse(arr));
+// console.log(reverse(arr));
 
 // Count Frequency of Elements
 
@@ -42,7 +42,7 @@ let freq = {}
 for (let i = 0; i < str.length; i++) {
     freq[str[i]] = (freq[str[i]] || 0) + 1;
 }
-console.log(freq);
+// console.log(freq);
 
 // Check Palindrome (same forward & backward)
 
@@ -60,7 +60,7 @@ function isPalindrome(str) {
     return true;
 }
 
-console.log(isPalindrome("madam"));
+// console.log(isPalindrome("madam"));
 
 
 
@@ -109,9 +109,9 @@ var isPalindrome = function (s) {
     }
     return true;
 };
-console.log(isPalindrome("A man, a plan, a canal: Panama"));
-console.log(isPalindrome("race a car"));
-console.log(isPalindrome("0P"));
+// console.log(isPalindrome("A man, a plan, a canal: Panama"));
+// console.log(isPalindrome("race a car"));
+// console.log(isPalindrome("0P"));
 
 
 
@@ -133,8 +133,8 @@ function getDistinctElements(arr) {
     }
     return distinctArr
 }
-console.log(getDistinctElements(mixedArr));   //[1,2,3,4,5]
-console.log(getDistinctElements([2, 2, 2, 2]));  //[2]
+// console.log(getDistinctElements(mixedArr));   //[1,2,3,4,5]
+// console.log(getDistinctElements([2, 2, 2, 2]));  //[2]
 
 
 // Q4: Generate all sub arrays of an array
@@ -154,4 +154,25 @@ function getSubArrays(arr) {
     }
     return subArrayCount;
 }
-console.log(getSubArrays([1, 2, 3]));
+// console.log(getSubArrays([1, 2, 3]));
+
+console.log("----------------------------------------");
+
+// Q5: Rotate array by k places
+
+
+function rotateByCount(arrForRotation, k) {
+    for (let i = 0; i < k; i++) {
+        let temp1 = arrForRotation[arrForRotation.length - 1]
+        let temp2 = arrForRotation[0];
+
+        for (let i = 0; i < arrForRotation.length; i++) {
+            temp2 = arrForRotation[i];
+            arrForRotation[i] = temp1;
+            temp1 = temp2;
+        }
+    }
+    return arrForRotation;
+}
+
+console.log(rotateByCount([1, 2, 3, 4, 5, 6], 2), "result");
