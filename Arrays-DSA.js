@@ -175,4 +175,25 @@ function rotateByCount(arrForRotation, k) {
     return arrForRotation;
 }
 
-console.log(rotateByCount([1, 2, 3, 4, 5, 6], 2), "result");
+// console.log(rotateByCount([1, 2, 3, 4, 5, 6], 2), "result");
+
+
+// Q6: Move zeroes to the end while maintaining the relative order of the non-zero elements
+
+let inputArr = [1, 2, 0, 4, 3, 0, 5, 0];
+function moveZeroesToEnd(inputArr) {
+    let resultantArr = [];
+    for (let i = 0; i < inputArr.length; i++) {
+        if (inputArr[i] !== 0) {
+            resultantArr.push(inputArr[i])
+        }
+    }
+    for (let i = 0; i < inputArr.length; i++) {
+        if (inputArr[i] === 0) {
+            resultantArr.push(inputArr[i])
+        }
+    }
+    return resultantArr
+}
+
+console.log(moveZeroesToEnd(inputArr), "result");
