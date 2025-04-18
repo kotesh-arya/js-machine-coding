@@ -12,7 +12,7 @@ function memoize(fn) {
 
         console.log("arguments of inner function", args);
 
-        
+
         const key = args.reduce((acc, curr) => `${acc}-${curr}`, '*');
         console.log("key for map", key);
         if (map.has(key)) { // return the result if a key made with this arguments is in the map
@@ -23,7 +23,7 @@ function memoize(fn) {
         // if key not present, then carry on with the calculation
         const result = fn(...args);
         console.log(result, "result from  calculation");
-        
+
         // store the result in the map for future accessing
         map.set(key, result);
 
@@ -39,3 +39,36 @@ const memoizeAdd = memoize(add);
 
 console.log(memoizeAdd(2, 3, 4)); // 5 - result from calculation
 console.log(memoizeAdd(2, 3, 4)); // 5 - result from cache
+
+
+// Deep copy and Shallow copy
+
+let obj = {
+    name: "kotesh",
+    age: 27,
+    address: {
+        street: "brahmin street",
+        city: "Jammala madugu"
+    },
+}
+
+let cloneObj = Object.assign({}, obj); // shallow copy
+
+console.log(cloneObj, "cloned version");
+cloneObj.age = 99;
+console.log(cloneObj.age);
+
+console.log(obj.age);
+
+cloneObj.address.city = "Pondatti";
+
+console.log(obj.address.city);  // Pondatti  (affectted) as the both original and clone object are referencing to the same address object, so changes to it from the cloned versoin affect the original object's address object.
+
+
+
+let cloneObj2 = JSON.parse(JSON.stringify(obj)); // deep copy
+
+cloneObj2.address.street = "mallepoola street";
+
+console.log(obj.address.street); // brahmin street (unaffected)
+
