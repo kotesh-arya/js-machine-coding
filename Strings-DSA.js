@@ -138,3 +138,55 @@ console.log(hammingDistance("hello", "hwllr"), "hamming distance");
 let digit = 2;
 
 console.log(digit.toString(2));
+
+// Reverse an array
+
+let arr = [1, 2, 3, 4, 5];
+
+function reverseArr(arr) {
+    let left = 0;
+    let right = arr.length - 1;
+    let temp;
+
+    while (left < right) {
+        temp = arr[left];
+        arr[left] = arr[right]
+        arr[right] = temp;
+
+        left++;
+        right--
+    }
+    return arr
+}
+console.log(reverseArr(arr)); // [5,4,3,2,1]
+console.log(reverseArr([5, 3, 2, 4, 5, 7])); // [ 7, 5, 4, 2, 3, 5 ]
+console.log(reverseArr([5, 6, 4, 3, 5, 6])); // [ 6, 5, 3, 4, 6, 5 ]
+console.log(reverseArr([9, 8, 7, 6, 5])); // [ 5, 6, 7, 8, 9 ]
+console.log(reverseArr([4, 3, 2, 1, 5])); // [ 5, 1, 2, 3, 4 ]
+console.log(reverseArr([3, 4, 2, 6, 7])); // [ 7, 6, 2, 4, 3 ]
+
+
+
+// Rotate an array(default right) by k digits
+
+let arr2 = [1, 2, 3, 4, 5];
+
+function rotateArr(arr, k) {
+    if (k > arr.length) {
+        return "k value is greater than array length"
+    }
+    for (let i = 0; i < k; i++) {
+        let temp1 = arr[arr.length - 1];
+        let temp2;
+        for (let i = 0; i < arr.length; i++) {
+            temp2 = arr[i];
+            arr[i] = temp1;
+            temp1 = temp2;
+        }
+    }
+    return arr;
+}
+console.log(rotateArr(arr2, 1)); // [5,1,2,3,4]
+console.log(rotateArr(arr2, 2)); // [3,4,5,1,2] // rotating the roated array only
+console.log(rotateArr(arr2, 3)); // [5,1,2,3,4] // rotating the roated array 
+console.log(rotateArr(arr2, 4)); // [1,2,3,4,5] // rotating the roated array 
