@@ -213,3 +213,41 @@ function leftRotateArr(arr, k) {
 console.log(leftRotateArr(arr2, 3)); // [4,5,1,2,3] // rotating arr2 which was already got maniputated by above function
 
 console.log(leftRotateArr(arr3, 2)); // [6,8,10,2,4]
+
+
+// 💎 Find the second largest element in the array
+let arr4 = [1, 2, 3, 4, 5, 9, 8, 7, 6];
+
+function findSecondLargest(arr) {
+    let firstLargest = 0;
+    let secondLargest;
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > firstLargest) {
+            firstLargest = arr[i]
+        }
+    }
+
+    // console.log("first largest", firstLargest);
+    let minDiff = firstLargest;
+
+// why did i choose the firstLargest element as the initial value of minDiff ?
+
+// Because, the highest possible difference b/w the largest element and each element in the array, is ALWAYS LESSTHAN the value of largest Element in the array 👍
+
+
+    for (let i = 1; i < arr.length; i++) {
+        // console.log("initial min diff", minDiff);
+        // console.log("first largest and each element diff", firstLargest - arr[i]);
+        if (firstLargest - arr[i] !== 0 && firstLargest - arr[i] < minDiff) {
+            minDiff = firstLargest - arr[i];
+            secondLargest = arr[i];
+        }
+    }
+
+    // console.log("second largest", secondLargest);
+    return secondLargest;
+}
+
+console.log(findSecondLargest(arr4)); // 8 ✅
+console.log(findSecondLargest([32, 12, 4, 1, 2, 3, 6, 7, 8])); // 12 ✅
