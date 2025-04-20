@@ -190,3 +190,26 @@ console.log(rotateArr(arr2, 1)); // [5,1,2,3,4]
 console.log(rotateArr(arr2, 2)); // [3,4,5,1,2] // rotating the roated array only
 console.log(rotateArr(arr2, 3)); // [5,1,2,3,4] // rotating the roated array 
 console.log(rotateArr(arr2, 4)); // [1,2,3,4,5] // rotating the roated array 
+
+
+
+// Rotate an array to left by k digits
+
+let arr3 = [2, 4, 6, 8, 10];
+
+
+function leftRotateArr(arr, k) {
+    for (let i = 0; i < k; i++) {
+        let temp1 = arr[0];
+        let temp2;
+        for (let i = arr.length - 1; i >= 0; i--) {
+            temp2 = arr[i];
+            arr[i] = temp1;
+            temp1 = temp2;
+        }
+    }
+    return arr;
+}
+console.log(leftRotateArr(arr2, 3)); // [4,5,1,2,3] // rotating arr2 which was already got maniputated by above function
+
+console.log(leftRotateArr(arr3, 2)); // [6,8,10,2,4]
