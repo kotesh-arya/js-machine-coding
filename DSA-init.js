@@ -595,3 +595,69 @@ function pattern21(n) {
 }
 
 pattern21(6);
+
+// Basic Maths
+// Extraction of digits and count them
+
+let num = 7789;
+let count = 0;
+
+while (num > 0) {
+  console.log(num % 10); // 9 -> 8 -> 7 -> 7
+  num = num / 10;
+  num = Math.floor(num);
+  count++;
+}
+console.log(count); // 4
+
+
+// Reverse a number
+
+// let num2 = 10400;
+let num2 = 1234;
+// op: 4321
+let revNum = 0;
+let result = 0;
+while (num2 > 0) {
+  console.log(num2 % 10); // 9 -> 8 -> 7 -> 7
+  revNum = revNum * 10 + num2 % 10
+  num2 = num2 / 10;
+  console.log(num2);
+  num2 = Math.floor(num2);
+  count++;
+}
+console.log(revNum, "result");
+
+
+
+// Check Palindrome
+function checkPalindrome(num) {
+  let inputNum = num;
+  let revNum = 0;
+  // let result = 0;
+  while (num > 0) {
+    console.log(num % 10); // 9 -> 8 -> 7 -> 7
+    revNum = revNum * 10 + num % 10
+    num = num / 10;
+    console.log(num);
+    num = Math.floor(num);
+    count++;
+  }
+  console.log(revNum, "reversed num");
+  console.log(inputNum, "main num");
+
+  if (inputNum === revNum) {
+    console.log("A palindrome")
+  }
+  else {
+    console.log(" Not A palindrome")
+  }
+
+}
+
+checkPalindrome(1234)
+checkPalindrome(121)
+
+
+
+
