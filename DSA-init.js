@@ -659,5 +659,38 @@ checkPalindrome(1234)
 checkPalindrome(121)
 
 
+// First three largest elements in an array
 
+let arr5 = [10, 4, 3, 50, 23, 90];
+
+function firstThreeLargest(arr) {
+  let first = Number.MIN_SAFE_INTEGER;
+  let second = Number.MIN_SAFE_INTEGER;
+  let third = Number.MIN_SAFE_INTEGER;
+
+  console.log(first, second, third)
+  console.log(Number.MIN_SAFE_INTEGER);
+  for (let i = 0; i < arr.length; i++) {
+
+    if (arr[i] > first) {
+      third = second;
+      second = first;
+      first = arr[i];
+    } else if (arr[i] > second) {
+      third = second;
+      second = arr[i]
+    } else if (arr[i] > third) {
+      third = arr[i];
+    }
+  }
+  return [first, second, third]
+}
+console.log(firstThreeLargest(arr5));
+
+// Key points / hints:
+
+// Consider using a least possible integer as the initial value for all the three variables
+console.log(Number.MIN_SAFE_INTEGER, "min integer"); // -9007199254740991
+
+console.log(Number.MAX_SAFE_INTEGER, "max integer"); // 9007199254740991
 
