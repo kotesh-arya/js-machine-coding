@@ -694,3 +694,23 @@ console.log(Number.MIN_SAFE_INTEGER, "min integer"); // -9007199254740991
 
 console.log(Number.MAX_SAFE_INTEGER, "max integer"); // 9007199254740991
 
+
+// Find the Leaders in the array:
+// A leader is an integer element which has has elements lessthan it's value on the right of it.
+let integers = [16, 17, 4, 3, 5, 3];
+let leadersArr = []
+first: for (let i = 0; i < integers.length; i++) {
+  console.log("for", integers[i]);
+
+  for (let j = i + 1; j < integers.length; j++) {
+    console.log(" ", integers[j]);
+    if (integers[i] < integers[j]) {
+      continue first;
+    }
+  }
+  leadersArr.push(integers[i])
+
+
+}
+console.log(leadersArr, "leaders arr");
+
