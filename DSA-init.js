@@ -714,3 +714,40 @@ first: for (let i = 0; i < integers.length; i++) {
 }
 console.log(leadersArr, "leaders arr");
 
+
+console.log("-----------------------------------");
+// check if array is sorted
+
+function checkArrraySort(arr) {
+  for (let i = 0; i < arr.length - 1; i++) {
+    // console.log(arr[i], arr[i + 1]);
+    if (arr[i] > arr[i + 1]) {
+      return "false";
+    }
+  }
+  return "true";
+}
+console.log(checkArrraySort([5, 4, 3, 2, 1])); // false
+console.log(checkArrraySort([1, 2, 3, 4, 5])); // true
+
+console.log("-----------------------------------");
+
+
+// Remove duplicate elements from the array:
+
+// v1 - return a seperate array of distinct elements
+let arr = [1, 2, 2, 3, 4, 4, 4, 5, 6]
+let filteredArr = []
+let currEl = arr[0];
+filteredArr.push(arr[0]);
+
+for (let i = 1; i < arr.length; i++) {
+  if (currEl === arr[i]) {
+    continue;
+  } else {
+    filteredArr.push(arr[i]);
+    currEl = arr[i]
+  }
+}
+
+console.log("filtered arr", filteredArr);
