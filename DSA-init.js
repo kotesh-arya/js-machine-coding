@@ -751,3 +751,31 @@ for (let i = 1; i < arr.length; i++) {
 }
 
 console.log("filtered arr", filteredArr);
+
+// v2 Arrange the distinct elements first and rest of the elements later without using a new array
+
+
+
+let arr2 = [1, 2, 2, 2, 2, 3, 4, 4, 4, 5, 5];
+let comparingElement = arr2[0];
+console.log("Initial comparing element:", comparingElement);
+
+let i = 1;
+while (i < arr2.length) {
+  if (comparingElement === arr2[i]) {
+    let pickedElement = arr2[i];
+
+    // Shift elements to left
+    for (let j = i; j < arr2.length - 1; j++) {
+      arr2[j] = arr2[j + 1];
+    }
+    arr2[arr2.length - 1] = pickedElement;
+    // ⚡ Don't increment i, because a new element came at i after shifting
+  } else {
+    comparingElement = arr2[i];
+    i++; // ✅ Now move to next index
+  }
+}
+
+console.log("filtered arr2", arr2);
+
