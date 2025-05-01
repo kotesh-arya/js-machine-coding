@@ -788,19 +788,30 @@ let arr3 = [1, 2, 0, 4, 3, 0, 5, 0];
 
 
 function moveZeroesToEnd(arr) {
-  for (let i = 0; i < arr.length; i++) {
-    let temp;
+  let i = 0;
+  let movedZeroesCount = 0;
+  while (i < arr.length - movedZeroesCount) {
+    // console.log("ARRAY LENGTH", arr.length);
+    console.log(i, "i value");
+    // console.log(arr[i], "<----------------------");
+    // console.log("arr", arr);
     if (arr[i] === 0) {
-      temp = arr[i];
+      let temp = arr[i];
       for (let j = i; j < arr.length - 1; j++) {
         arr[j] = arr[j + 1];
       }
       arr[arr.length - 1] = temp;
+      movedZeroesCount++;
+    } else {
+      i++;
     }
   }
   return arr;
 }
 
 console.log(moveZeroesToEnd(arr3)); // [1,2,4,3,5,0,0,0] 
+
+
+console.log(moveZeroesToEnd([0, 0, 1]));
 
 
