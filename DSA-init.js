@@ -770,7 +770,7 @@ while (i < arr2.length) {
       arr2[j] = arr2[j + 1];
     }
     arr2[arr2.length - 1] = pickedElement;
-    // ⚡ Don't increment i, because a new element came at i after shifting
+    // ⚡ Don't increment i, because a new element came at i after shifting and that also has to be checked for repetition
   } else {
     comparingElement = arr2[i];
     i++; // ✅ Now move to next index
@@ -778,4 +778,29 @@ while (i < arr2.length) {
 }
 
 console.log("filtered arr2", arr2);
+
+// Move zeroes to an end while maintaining the relative order of non-zero elements
+// IP: [1, 2, 0, 4, 3, 0, 5, 0]
+// OP: [1, 2, 4, 3, 5, 0, 0, 0]
+
+
+let arr3 = [1, 2, 0, 4, 3, 0, 5, 0];
+
+
+function moveZeroesToEnd(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    let temp;
+    if (arr[i] === 0) {
+      temp = arr[i];
+      for (let j = i; j < arr.length - 1; j++) {
+        arr[j] = arr[j + 1];
+      }
+      arr[arr.length - 1] = temp;
+    }
+  }
+  return arr;
+}
+
+console.log(moveZeroesToEnd(arr3)); // [1,2,4,3,5,0,0,0] 
+
 
