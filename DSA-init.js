@@ -812,6 +812,41 @@ function moveZeroesToEnd(arr) {
 console.log(moveZeroesToEnd(arr3)); // [1,2,4,3,5,0,0,0] 
 
 
-console.log(moveZeroesToEnd([0, 0, 1]));
+console.log(moveZeroesToEnd([0, 0, 1])); // [1,0,0]  
+
+
+// Mimimum operations with increment by "k" to make all the elements of the array as equal
+
+function minIncOperations(arr, k) {
+  // find highest element of the array
+
+  let highestEl = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > highestEl) {
+      highestEl = arr[i]
+    }
+  }
+
+  let operationsCount = 0;
+
+  for (let j = 0; j < arr.length; j++) {
+
+    if (arr[j] === highestEl) {
+      continue
+    } else {
+      let difference = highestEl - arr[j];
+      let differenceDivisor = Math.ceil(difference / k);
+      operationsCount += differenceDivisor;
+    }
+
+
+  }
+
+  return operationsCount;
+
+}
+
+console.log(minIncOperations([4, 7, 19, 16], 3));
 
 
