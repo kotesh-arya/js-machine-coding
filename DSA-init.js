@@ -847,6 +847,62 @@ function minIncOperations(arr, k) {
 
 }
 
-console.log(minIncOperations([4, 7, 19, 16], 3));
+console.log(minIncOperations([4, 7, 19, 16], 3)); // 10
+console.log(minIncOperations([4, 4, 4, 4], 3)); // 0
 
 
+// Minimum cost to make array size 1 by removing larger of pairs
+
+// Given an array of n integers. We need to reduce size of array to one. We are allowed to select a pair of integers and remove the larger one of these two. This decreases the array size by 1. Cost of this operation is equal to value of smallest one. Find out minimum sum of costs of operations needed to convert the array into a single element.
+
+// Examples:
+
+// Input: arr[]= [4 ,3 ,2 ]
+// Output: 4
+// Explanation: Choose (4, 2) so 4 is removed, new array = {2, 3}. Now choose (2, 3) so 3 is removed.   So total cost = 2 + 2 = 4.
+
+// Input: arr[]=[ 3, 4 ]
+// Output: 3
+// Explanation: choose (3, 4) so cost is 3.
+
+
+// My approach [unfinished]
+// function minCostForArrayReduction(arr) {
+//   while (arr.length > 1) {
+//     console.log("ji");
+//     let firstLargest = 0;
+//     for (let i = 0; i < arr.length; i++) {
+//       console.log('arr=>', arr);
+//       if (arr[i] > firstLargest) {
+//         firstLargest = arr[i];
+//       }
+//     }
+//     let leastDiffWithFirstLargest = firstLargest;
+//     let secondLargest;
+//     for (let j = 0; j < arr.length; j++) {
+//       if (firstLargest - arr[j] < leastDiffWithFirstLargest && firstLargest - arr[j] !== 0) {
+//         leastDiffWithFirstLargest = firstLargest - arr[j];
+//         secondLargest = arr[j];
+//       }
+//     }
+
+//     console.log("first largest---", firstLargest);
+//     console.log("second largest---", secondLargest);
+
+
+
+//     arr.length--;
+//   }
+// }
+// minCostForArrayReduction([4, 3, 2])
+
+
+// Sorted approach
+function minCostForArrayReduction(arr) {
+  // Minimum cost is (size - 1 : cause those many times we have to operate which leads the array left with one element) multiplied with minimum element.
+  const n = arr.length;
+  return (n - 1) * Math.min(...arr);
+}
+
+console.log(minCostForArrayReduction([4, 3, 2])); // 2 + 2 = 4
+console.log(minCostForArrayReduction([4, 3])); // 3
