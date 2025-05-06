@@ -906,3 +906,39 @@ function minCostForArrayReduction(arr) {
 
 console.log(minCostForArrayReduction([4, 3, 2])); // 2 + 2 = 4
 console.log(minCostForArrayReduction([4, 3])); // 3
+
+
+// ----------------------------Arrary basic understanding problems end GFG-----------------
+
+// ------------------------- Resume Basic maths-------------------
+
+// Check if a number is an Armstrong number or not
+
+// Armstrong number: For an n-digit number, the summation of individual digits raised to "n", is equal to it's value
+
+// Ex: 371(3 digits)  -> 3**3 + 7**3 + 1**3  = 371
+
+function checkArmstrongNum(num) {
+  let initialNum = num;
+  let digitRaisedToPowerSum = 0;
+  let digitCount = 0;
+  while (num >= 1) {
+    digitCount++;
+    digitRaisedToPowerSum += (num % 10) ** 3;
+    console.log((num % 10) ** 3, "<-----single digit cubed----------------");
+    num = Math.floor(num / 10);
+    // console.log("num->", num);
+  }
+  console.log("total count------->", digitRaisedToPowerSum);
+  // console.log("digit count", digitCount);
+  if (digitRaisedToPowerSum === initialNum) {
+    return true;
+  } else {
+    return false
+  }
+}
+
+console.log(checkArmstrongNum(371));  // true
+console.log(checkArmstrongNum(1634));  // flase
+
+
