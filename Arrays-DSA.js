@@ -197,3 +197,28 @@ function moveZeroesToEnd(inputArr) {
 }
 
 console.log(moveZeroesToEnd(inputArr), "result");
+
+
+// Two sum  
+
+
+let sumArr = [2, 5, 7, 15];
+let target = 9;
+
+function twoSumCheck(arr, target) {
+
+    for (let i = 0; i < arr.length; i++) {
+
+        for (let j = 0; j < arr.length; j++) {
+            if (arr[i] + arr[j] === target && i !== j) {
+                return [i, j]
+            }
+        }
+
+    }
+    return "No two sum integers found"
+
+}
+
+console.log(twoSumCheck(sumArr, target));
+// Using two nested loops, time complexity O(n*2)
