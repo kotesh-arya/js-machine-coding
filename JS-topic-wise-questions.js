@@ -50,3 +50,20 @@
 // console.log(result2);
 
 // // ---------------------------------------------------------------------
+
+
+// // Factory functions(functions that return objects on invocation) an alternative of classes in creating objects
+// // function createCounter() {
+// //     let count = 0;
+// //     return {
+// //         increment() { count++; return this; },
+// //         get() { return count; }
+// //     };
+// // }
+// // let counter1 = createCounter();
+// // console.log(counter1);
+// // console.log(counter1.get(), "value if the property in the created object instance BEFORE incermenting");
+// // console.log(counter1.increment());
+// // console.log(counter1.get(), "value if the property in the created object instance AFTER incermenting");
+
+// // ---------------------------------------------------------------------
