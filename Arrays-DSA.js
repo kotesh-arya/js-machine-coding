@@ -196,7 +196,7 @@ function moveZeroesToEnd(inputArr) {
     return resultantArr
 }
 
-console.log(moveZeroesToEnd(inputArr), "result");
+// console.log(moveZeroesToEnd(inputArr), "result");
 
 
 // Two sum  
@@ -220,5 +220,51 @@ function twoSumCheck(arr, target) {
 
 }
 
-console.log(twoSumCheck(sumArr, target));
+// console.log(twoSumCheck(sumArr, target));
 // Using two nested loops, time complexity O(n*2)
+
+
+console.log("----------------------------------------");
+
+
+//  Resume/restart
+
+// Array Traversal
+
+let arr1 = [100, 2, 3, 4, 5];
+
+for (let i = 0; i < arr1.length; i++) {
+    // console.log(arr1[i]);
+}
+
+for (let j = arr1.length - 1; j >= 0; j--) {
+    // console.log(arr1[j]);
+}
+
+for (let el in arr1) { // el represents the indexes of elements and not the elements ✅
+    // console.log(arr1[el]); 100 2 3 4 5
+}
+
+// Find maximum and minimum element
+
+let arr2 = [4, 2, 8, 9, 7, 1];
+
+let max = 0;
+let min = arr[0];
+
+for (let i = 0; i < arr2.length; i++) {
+    if (arr2[i] > max) {
+        max = arr2[i];
+    }
+}
+for (let j = 1; j < arr2.length; j++) {
+    if (arr2[j] < min) {
+        min = arr2[j]
+    }
+}
+
+
+
+console.log(max, "max element");
+console.log(min, "min element");
+
