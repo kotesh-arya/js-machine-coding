@@ -67,3 +67,15 @@
 // // console.log(counter1.get(), "value if the property in the created object instance AFTER incermenting");
 
 // // ---------------------------------------------------------------------
+
+// Prototypes, Prototypal Inheritance
+// const animal = {
+//     eats: true
+// }
+// const rabbit = {
+//     jumps: true
+// }
+
+// rabbit.__proto__ = animal;
+
+// console.log(rabbit.eats); // true - inherited property from the prototype object
