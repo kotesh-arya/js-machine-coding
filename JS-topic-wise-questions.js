@@ -158,7 +158,7 @@ console.log(bound("Yo..!")); // Yo..! arya
 
 
 // Constructor function that is used to construct and return objects, alternative of classes
-function Animal(name){
+function Animal(name) {
     this.name = name
 }
 
@@ -175,10 +175,66 @@ console.log(dog.__proto__);
 // console.log(dog.__proto__);
 
 
-function sleep(){
+function sleep() {
     return "I am sleeping"
 }
 
 console.log(sleep.prototype);
 
 // ------------------------------------------------------------------
+
+
+// Polyfill for filter
+Array.prototype.myFilter = function (cbFunc) {
+    console.log("I am working");
+    // console.log(cbFunc);
+    let resultantArr = [];
+    for (let i = 0; i < this.length; i++) {
+        if (!this.hasOwnProperty(i)) continue; // skips holes, like in [1, , 3]
+        // console.log(typeof i);
+        // console.log(this[i], "each item");
+        // console.log("returned check for cb of each item", cbFunc(item));
+        if (cbFunc(this[i], i, this)) {
+            // return this[item];
+            resultantArr.push(this[i])
+        }
+    }
+    return resultantArr;
+}
+// let arr1 = [1, 2, 3, 4, 5];
+
+// let filteredArr = arr1.myFilter(item => item > 1);
+
+// console.log("*******filtered arr", filteredArr);
+
+let arr = [1, , 3, 4];
+arr.customProp = 999;
+
+let result = arr.myFilter((val, i) => {
+    console.log(val, i);  // Should log only 1, 3, 4 with correct indexes
+    return val > 2;
+});
+
+console.log(result); // [3, 4]
+
+// Polyfill for map
+
+
+Array.prototype.myMap = function (cbFunc) {
+    console.log("I am working");
+    // console.log(cbFunc);
+    let resultantArr = [];
+    for (let i = 0; i < this.length; i++) {
+        if (!this.hasOwnProperty(i)) continue; // skips holes, like in [1, , 3]
+        // console.log(typeof i);
+        // console.log(this[i], "each item");
+        // console.log("returned check for cb of each item", cbFunc(item));
+        resultantArr.push(cbFunc(this[i], i, this))
+    }
+    return resultantArr;
+}
+
+let arr2 = [6, 5, 4, 3, 2]
+
+let result2 = arr2.myMap(item => item + 1);
+console.log(result2);
