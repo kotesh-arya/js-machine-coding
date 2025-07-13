@@ -151,3 +151,34 @@ Function.prototype.myBind = function (context, ...presetArgs) {
 
 const bound = greet.myBind(user);
 console.log(bound("Yo..!")); // Yo..! arya 
+
+
+
+// A quick context about instanceOf operator and also about prototype accessing for funcitons and objects
+
+
+// Constructor function that is used to construct and return objects, alternative of classes
+function Animal(name){
+    this.name = name
+}
+
+
+let dog = new Animal("chaow chaow");
+
+console.log(dog, "object instance created from the Animal ");
+console.log(dog instanceof Animal); // The created dog object is an instance of the Animal 
+
+console.log(dog.__proto__);
+//  dog.__proto__ = {
+//     mowa: "jojo"
+// }
+// console.log(dog.__proto__);
+
+
+function sleep(){
+    return "I am sleeping"
+}
+
+console.log(sleep.prototype);
+
+// ------------------------------------------------------------------
